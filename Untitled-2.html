@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- EDIT HERE: Your Website Title -->
+    <title>BM Treats.com</title>
+    
+    <!-- Google Fonts for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- GENERAL STYLES --- */
+        :root {
+            /* EDIT HERE: You can change the main colors of your website here */
+            --primary-color: #FFD700; /* A tasty warm red/orange */
+            --secondary-color: #feca57; /* A warm yellow */
+            --text-color: #333333;
+            --bg-light: #433e43;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color:#fffcff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* If you want an image logo instead of text, use this class */
+        .logo-img {
+            max-height: 50px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background-color: #ff5252;
+        }
+
+        /* --- HERO SECTION --- */
+       .hero {
+    height: 80vh;
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url("small-chops.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color:#f3b63a;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            color:#f3b63a
+        }
+
+        .hero .btn {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .hero .btn:hover {
+            background-color: #f3b63a;
+        }
+
+        /* --- SECTIONS (Menu, About) --- */
+        section {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        /* --- MENU CARDS --- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- FOOTER / CONTACT --- */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-box {
+            max-width: 300px;
+        }
+
+        .footer-box h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* In a full site, this would be a hamburger menu */
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION HEADER -->
+    <nav>
+        <!-- EDIT HERE: Your Business Name or Logo Image -->
+       <a href="#" class="logo">
+    <img src="logo.png" class="logo-img">
+    BM Treats
+</a>
+        
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#menu">Our Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <!-- EDIT HERE: Link this to your WhatsApp by replacing the href -->
+            <li><a href="https://wa.me/2347053446992" class="cta-btn">Order Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <!-- EDIT HERE: Catchy Headline -->
+        <h1>Delicious Snacks & Catering for Every Occasion</h1>
+        <p>From corporate events to weddings, and sweet daily cravings. We deliver happiness in every bite!</p>
+        <!-- EDIT HERE: WhatsApp Order Link -->
+        <a href="https://wa.me/2347053446992" class="btn">View Menu & Order</a>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" style="background-color: white;">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <p style="max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+            <!-- EDIT HERE: Your Business Description -->
+            At <strong>BM Treats</strong>, we believe that good food brings people together. We specialize in mouth-watering pastries, small chops, and full-scale event catering. We use only the freshest ingredients to ensure every meal is memorable. Let us handle the food, while you enjoy the party!
+        </p>
+    </section>
+
+    <!-- MENU / SERVICES SECTION -->
+    <section id="menu">
+        <h2 class="section-title">What We Offer</h2>
+        <div class="menu-grid">
+            
+            <!-- SERVICE 1 -->
+            <div class="card">
+                <!-- EDIT HERE: Change the image link inside src="" -->
+                <img src="service 1.jpg" alt="Small Chops">
+                <div class="card-content">
+                    <!-- EDIT HERE: Service Title & Description -->
+                    <h3>Small Chops & Appetizers</h3>
+                    <p>Spring rolls, samosas, puff-puff, and perfectly grilled chicken for your guests.</p>
+                </div>
+            </div>
+
+            <!-- SERVICE 2 -->
+            <div class="card">
+                <!-- EDIT HERE: Change the image link inside src="" -->
+                <img src="service 22.jpg" alt="Pastries">
+                <div class="card-content">
+                    <!-- EDIT HERE: Service Title & Description -->
+                    <h3>Fresh Pastries & Cakes</h3>
+                    <p>Delicious meat pies, sausage rolls, donuts, and custom cakes for birthdays and weddings.</p>
+                </div>
+            </div>
+
+            <!-- SERVICE 3 -->
+            <div class="card">
+                <!-- EDIT HERE: Change the image link inside src="" -->
+                <img src="service 3.jpg" alt="Event Catering">
+                <div class="card-content">
+                    <!-- EDIT HERE: Service Title & Description -->
+                    <h3>Event Catering</h3>
+                    <p>Full buffet setups featuring local and continental dishes for your large events and parties.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER & CONTACT SECTION -->
+    <footer id="contact">
+        <div class="footer-container">
+            
+            <div class="footer-box">
+                <!-- EDIT HERE: Business Name -->
+                <h3>BM Treats</h3>
+                <p>Bringing taste and elegance to your table. Your satisfaction is our priority.</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Contact Us</h3>
+                <!-- EDIT HERE: Your Phone, Email, and Location -->
+                <p><i class="fas fa-phone"></i> +234 705 344 6992</p>
+                <p><i class="fas fa-envelope"></i> mabsadebusola@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 30 Adeyemi Odukomaya St, Ikosi Ketu 105102, Lagos, Nigeria</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <!-- EDIT HERE: Replace the '#' with your actual social media links -->
+                    <a href="https://www.instagram.com/bmtreatsservices?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <p>&copy; 2026 BM Treats. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
